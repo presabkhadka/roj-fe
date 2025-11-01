@@ -84,7 +84,6 @@ export default function QueryPage() {
       </nav>
 
 
-      {/* Chat Area */}
       <div className="flex-1 mt-32 px-6 pb-24 overflow-y-auto flex flex-col gap-4">
         {messages.map((msg, i) => (
           <div
@@ -105,7 +104,6 @@ export default function QueryPage() {
         <div ref={chatEndRef} />
       </div>
 
-      {/* Input */}
       <div className="fixed bottom-4 left-0 w-full px-6 flex gap-3">
         <input
           type="text"
@@ -113,7 +111,7 @@ export default function QueryPage() {
           value={techStack}
           onChange={(e) => setTechStack(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
-          className="flex-1 rounded-full px-4 py-3 bg-slate-800/50 text-white placeholder-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+          className="flex-1 rounded-full px-4 py-3 bg-slate-800 text-white placeholder-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
         />
         <button
           onClick={handleSubmit}

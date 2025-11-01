@@ -3,7 +3,6 @@ import axios from "axios";
 import { Briefcase, Search, MapPin, Clock, Calendar, TrendingUp, Sparkles, Building2, ArrowRight, Filter, X, Plus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-// Define your Job type based on your backend
 interface Job {
   id: number;
   title: string;
@@ -11,11 +10,11 @@ interface Job {
   category?: string[];
   createdAt: string;
   closedAt: string;
-  [key: string]: any; // optional to allow extra fields like embeddings
+  [key: string]: any;
 }
 
 export default function Jobs() {
-  const [jobs, setJobs] = useState<Job[]>([]); // ✅ tell TypeScript what type of data this is
+  const [jobs, setJobs] = useState<Job[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
@@ -37,7 +36,6 @@ export default function Jobs() {
       .then((res) => setJobs(res.data))
       .catch((err) => console.error(err));
 
-    // Trigger hero animation
     setTimeout(() => {
       if (heroRef.current) {
         heroRef.current.classList.add('hero-loaded');
@@ -74,7 +72,6 @@ export default function Jobs() {
     setLoading(true);
 
     try {
-      // Convert category string to array (comma-separated)
       const categoryArray = category
         .split(",")
         .map((cat) => cat.trim())
@@ -92,11 +89,9 @@ export default function Jobs() {
 
       await axios.post("http://localhost:3000/jobs", jobData);
 
-      // Success - refresh jobs list
       const response = await axios.get<Job[]>("http://localhost:3000/jobs");
       setJobs(response.data);
 
-      // Reset form and close dialog
       setTitle("");
       setDescription("");
       setCreatedAt("");
@@ -230,7 +225,6 @@ export default function Jobs() {
         }
       `}</style>
 
-      {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-lg border-b border-purple-500/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-2">
@@ -254,7 +248,6 @@ export default function Jobs() {
         </div>
       </nav>
 
-      {/* Post Job Dialog */}
       {isDialogOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
           <div className="bg-slate-800/95 backdrop-blur-xl rounded-3xl border border-purple-500/20 shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
@@ -272,7 +265,6 @@ export default function Jobs() {
             </div>
 
             <form onSubmit={handlePostJob} className="p-6 space-y-5">
-              {/* Job Title */}
               <div>
                 <label htmlFor="title" className="block text-sm font-semibold text-slate-300 mb-2">
                   Job Title *
@@ -288,7 +280,6 @@ export default function Jobs() {
                 />
               </div>
 
-              {/* Description */}
               <div>
                 <label htmlFor="description" className="block text-sm font-semibold text-slate-300 mb-2">
                   Job Description *
@@ -304,7 +295,6 @@ export default function Jobs() {
                 />
               </div>
 
-              {/* Created At & Closed At - Row */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="createdAt" className="block text-sm font-semibold text-slate-300 mb-2">
@@ -335,7 +325,6 @@ export default function Jobs() {
                 </div>
               </div>
 
-              {/* Category */}
               <div>
                 <label htmlFor="category" className="block text-sm font-semibold text-slate-300 mb-2">
                   Categories (comma-separated) *
@@ -352,7 +341,6 @@ export default function Jobs() {
                 <p className="text-xs text-slate-500 mt-1">Separate multiple categories with commas</p>
               </div>
 
-              {/* User ID */}
               <div>
                 <label htmlFor="userId" className="block text-sm font-semibold text-slate-300 mb-2">
                   User ID *
@@ -368,7 +356,6 @@ export default function Jobs() {
                 />
               </div>
 
-              {/* Submit Buttons */}
               <div className="flex gap-3 pt-4">
                 <button
                   type="button"
@@ -403,11 +390,9 @@ export default function Jobs() {
         </div>
       )}
 
-      {/* Hero Section */}
       <section ref={heroRef} className="pt-32 pb-20 px-6 grid-bg relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900"></div>
 
-        {/* Floating Icons */}
         <div className="absolute top-40 right-20 floating-icon hidden lg:block">
           <div className="bg-purple-600/20 p-4 rounded-2xl backdrop-blur">
             <TrendingUp className="w-8 h-8 text-purple-400" />
@@ -427,7 +412,6 @@ export default function Jobs() {
             Explore thousands of AI-matched opportunities tailored to your skills and passion
           </p>
 
-          {/* Search Bar */}
           <div className="hero-search max-w-3xl mx-auto">
             <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-3 border border-purple-500/20 shadow-2xl">
               <div className="flex flex-col md:flex-row gap-3">
@@ -448,7 +432,6 @@ export default function Jobs() {
               </div>
             </div>
 
-            {/* Stats */}
             <div className="flex flex-wrap justify-center gap-6 mt-8">
               <div className="stat-badge flex items-center space-x-2 bg-purple-600/20 backdrop-blur px-4 py-2 rounded-full border border-purple-500/30">
                 <Sparkles className="w-4 h-4 text-purple-400" />
@@ -467,7 +450,6 @@ export default function Jobs() {
         </div>
       </section>
 
-      {/* Jobs Section */}
       <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="flex items-center justify-between mb-10">
           <div>
@@ -520,7 +502,6 @@ export default function Jobs() {
                   {job.description}
                 </p>
 
-                {/* Categories */}
                 {job.category && job.category.length > 0 && (
                   <div className="flex flex-wrap gap-2 mb-4">
                     {job.category.slice(0, 3).map((cat: string, idx: number) => (
@@ -539,7 +520,6 @@ export default function Jobs() {
                   </div>
                 )}
 
-                {/* Dates */}
                 <div className="space-y-2 mb-4 text-sm text-slate-400">
                   <div className="flex items-center space-x-2">
                     <Calendar className="w-4 h-4 text-purple-400" />
@@ -561,7 +541,6 @@ export default function Jobs() {
         )}
       </section>
 
-      {/* CTA Section */}
       {
         userType === 'SEEKER' ?
           <section className="max-w-6xl mx-auto px-6 py-20">
@@ -592,7 +571,6 @@ export default function Jobs() {
           </section>
       }
 
-      {/* Footer */}
       <footer className="border-t border-purple-500/20 py-8 bg-slate-900/80 backdrop-blur">
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center space-x-2 mb-4 md:mb-0">

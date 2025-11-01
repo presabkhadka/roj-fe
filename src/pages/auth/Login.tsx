@@ -33,21 +33,22 @@ const RojgarLogin = () => {
       const token = response.data.data;
       const userType = response.data.type
 
-      // Store token in localStorage
       localStorage.setItem("Authorization", `Bearer ${token}`);
       localStorage.setItem("UserType", userType);
 
-      // Show success message (in real app, use toast library)
-
-      // Navigate to home (in real app, use react-router-dom)
       navigate("/user/home")
 
     } catch (error) {
-      // Show error message (in real app, use toast library)
+      console.log(error);
+
     } finally {
       setLoading(false);
     }
   };
+
+  const moveToSignup = () => {
+    navigate('/signup')
+  }
 
   const toggleVisibility = () => {
     setShowPassword(!showPassword);
@@ -183,11 +184,9 @@ const RojgarLogin = () => {
       `}</style>
 
       <div ref={containerRef} className="min-h-screen grid md:grid-cols-2">
-        {/* Left Side - Branding */}
         <div className="logo-section hidden md:flex flex-col justify-center items-center p-12 relative">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-transparent"></div>
 
-          {/* Floating Icons */}
           <div className="absolute top-20 left-20 floating-icon">
             <div className="bg-purple-600/20 p-4 rounded-2xl backdrop-blur">
               <Users className="w-8 h-8 text-purple-400" />
@@ -224,10 +223,8 @@ const RojgarLogin = () => {
           </div>
         </div>
 
-        {/* Right Side - Login Form */}
         <div className="form-section flex items-center justify-center p-6 md:p-12">
           <div className="w-full max-w-md">
-            {/* Mobile Logo */}
             <div className="md:hidden flex items-center justify-center space-x-2 mb-8">
               <Briefcase className="w-10 h-10 text-purple-400" />
               <span className="text-4xl font-bold gradient-text">Rojgar</span>
@@ -238,7 +235,6 @@ const RojgarLogin = () => {
               <p className="text-slate-400 text-center mb-8">Sign in to continue your journey</p>
 
               <div className="space-y-6">
-                {/* Email Field */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-slate-300 mb-2">
                     Email Address
@@ -256,7 +252,6 @@ const RojgarLogin = () => {
                   </div>
                 </div>
 
-                {/* Password Field */}
                 <div>
                   <label htmlFor="password" className="block text-sm font-semibold text-slate-300 mb-2">
                     Password
@@ -281,18 +276,6 @@ const RojgarLogin = () => {
                   </div>
                 </div>
 
-                {/* Forgot Password */}
-                <div className="flex items-center justify-between text-sm">
-                  <label className="flex items-center space-x-2 cursor-pointer">
-                    <input type="checkbox" className="w-4 h-4 rounded border-slate-600 text-purple-600 focus:ring-purple-500" />
-                    <span className="text-slate-400">Remember me</span>
-                  </label>
-                  <button className="text-purple-400 hover:text-purple-300 font-semibold transition">
-                    Forgot Password?
-                  </button>
-                </div>
-
-                {/* Submit Button */}
                 <button
                   onClick={handleSubmit}
                   disabled={loading}
@@ -311,17 +294,15 @@ const RojgarLogin = () => {
                   )}
                 </button>
 
-                {/* Sign Up Link */}
                 <p className="text-center text-slate-400">
                   Don't have an account?{' '}
-                  <button className="text-purple-400 hover:text-purple-300 font-semibold transition">
+                  <button className="text-purple-400 hover:text-purple-300 font-semibold transition" onClick={moveToSignup}>
                     Register Now
                   </button>
                 </p>
               </div>
             </div>
 
-            {/* Mobile Tagline */}
             <p className="md:hidden text-center text-slate-400 mt-6 text-sm">
               Where AI Meets Opportunity
             </p>

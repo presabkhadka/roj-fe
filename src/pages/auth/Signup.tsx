@@ -64,7 +64,6 @@ export default function Signup() {
       return;
     }
 
-    // Convert skills string to array (comma-separated)
     const skillsArray = skills
       .split(",")
       .map((skill) => skill.trim())
@@ -223,11 +222,9 @@ export default function Signup() {
       `}</style>
 
       <div ref={containerRef} className="min-h-screen grid md:grid-cols-2">
-        {/* Left Side - Branding */}
         <div className="logo-section hidden md:flex flex-col justify-center items-center p-12 relative">
           <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-transparent"></div>
 
-          {/* Floating Icons */}
           <div className="absolute top-20 left-20 floating-icon">
             <div className="bg-purple-600/20 p-4 rounded-2xl backdrop-blur">
               <Users className="w-8 h-8 text-purple-400" />
@@ -264,10 +261,8 @@ export default function Signup() {
           </div>
         </div>
 
-        {/* Right Side - Signup Form */}
         <div className="form-section flex items-center justify-center p-6 md:p-12 overflow-y-auto">
           <div className="w-full max-w-md">
-            {/* Mobile Logo */}
             <div className="md:hidden flex items-center justify-center space-x-2 mb-6">
               <Briefcase className="w-10 h-10 text-purple-400" />
               <span className="text-4xl font-bold gradient-text">Rojgar</span>
@@ -278,7 +273,6 @@ export default function Signup() {
               <p className="text-slate-400 text-center mb-6">Join us and start your journey</p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
-                {/* First Name & Last Name - Row */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="firstName" className="block text-sm font-semibold text-slate-300 mb-2">
@@ -315,7 +309,6 @@ export default function Signup() {
                   </div>
                 </div>
 
-                {/* Username */}
                 <div>
                   <label htmlFor="username" className="block text-sm font-semibold text-slate-300 mb-2">
                     Username
@@ -333,7 +326,6 @@ export default function Signup() {
                   </div>
                 </div>
 
-                {/* Email */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-slate-300 mb-2">
                     Email Address
@@ -351,7 +343,6 @@ export default function Signup() {
                   </div>
                 </div>
 
-                {/* Password */}
                 <div>
                   <label htmlFor="password" className="block text-sm font-semibold text-slate-300 mb-2">
                     Password
@@ -376,7 +367,6 @@ export default function Signup() {
                   </div>
                 </div>
 
-                {/* User Type */}
                 <div>
                   <label className="block text-sm font-semibold text-slate-300 mb-3">
                     I am a
@@ -407,7 +397,6 @@ export default function Signup() {
                   </div>
                 </div>
 
-                {/* Skills */}
                 <div>
                   <label htmlFor="skills" className="block text-sm font-semibold text-slate-300 mb-2">
                     Skills (comma-separated)
@@ -425,7 +414,6 @@ export default function Signup() {
                   </div>
                 </div>
 
-                {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={loading}
@@ -444,7 +432,6 @@ export default function Signup() {
                   )}
                 </button>
 
-                {/* Login Link */}
                 <p className="text-center text-slate-400 text-sm italic">
                   Already have an account?{' '}
                   <span
@@ -457,7 +444,6 @@ export default function Signup() {
               </form>
             </div>
 
-            {/* Mobile Tagline */}
             <p className="md:hidden text-center text-slate-400 mt-6 text-sm">
               Where AI Meets Opportunity
             </p>

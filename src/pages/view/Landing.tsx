@@ -10,7 +10,6 @@ const RojgarLanding = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    // Simulate GSAP-like animations with CSS classes
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -100px 0px'
@@ -27,7 +26,6 @@ const RojgarLanding = () => {
     const elements = document.querySelectorAll('.animate-on-scroll');
     elements.forEach(el => observer.observe(el));
 
-    // Hero animation on mount
     setTimeout(() => {
       if (heroRef.current) {
         heroRef.current.classList.add('hero-loaded');
@@ -211,7 +209,6 @@ const RojgarLanding = () => {
         }
       `}</style>
 
-      {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-lg border-b border-purple-500/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-2">
@@ -229,7 +226,6 @@ const RojgarLanding = () => {
         </div>
       </nav>
 
-      {/* Hero Section */}
       <section ref={heroRef} className="pt-32 pb-20 px-6 grid-bg relative">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900"></div>
         <div className="max-w-6xl mx-auto text-center relative z-10">
@@ -244,18 +240,17 @@ const RojgarLanding = () => {
             and automates personalized communication — all while providing valuable feedback to every applicant.
           </p>
           <div className="hero-cta flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="glow-button bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-full font-bold text-lg flex items-center space-x-2 transition">
+            <button className="glow-button bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-full font-bold text-lg flex items-center space-x-2 transition" onClick={moveToLogin}>
               <span>Start Matching Now</span>
               <ArrowRight className="w-5 h-5" />
             </button>
-            <button className="border-2 border-purple-400 hover:bg-purple-400/10 px-8 py-4 rounded-full font-bold text-lg transition">
+            <button className="border-2 border-purple-400 hover:bg-purple-400/10 px-8 py-4 rounded-full font-bold text-lg transition" onClick={moveToLogin}>
               See Demo
             </button>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
       <section id="features" ref={featuresRef} className="py-20 px-6 bg-slate-900/50">
         <div className="max-w-7xl mx-auto">
           <h2 className="animate-on-scroll text-4xl md:text-5xl font-bold text-center mb-16">
@@ -279,7 +274,6 @@ const RojgarLanding = () => {
         </div>
       </section>
 
-      {/* How It Works */}
       <section id="how-it-works" className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="animate-on-scroll text-4xl md:text-5xl font-bold text-center mb-16">
@@ -301,7 +295,6 @@ const RojgarLanding = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
       <section id="stats" ref={statsRef} className="py-20 px-6 bg-gradient-to-br from-purple-900/20 to-slate-900/20">
         <div className="max-w-7xl mx-auto">
           <h2 className="animate-on-scroll text-4xl md:text-5xl font-bold text-center mb-16">
@@ -322,7 +315,6 @@ const RojgarLanding = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
       <section ref={ctaRef} className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center animate-on-scroll">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -332,18 +324,17 @@ const RojgarLanding = () => {
             Join hundreds of companies using AI to find the perfect candidates faster and more accurately.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="glow-button bg-purple-600 hover:bg-purple-700 px-10 py-4 rounded-full font-bold text-lg flex items-center justify-center space-x-2 transition">
+            <button className="glow-button bg-purple-600 hover:bg-purple-700 px-10 py-4 rounded-full font-bold text-lg flex items-center justify-center space-x-2 transition" onClick={moveToLogin}>
               <span>Start Free Trial</span>
               <ArrowRight className="w-5 h-5" />
             </button>
-            <button className="border-2 border-purple-400 hover:bg-purple-400/10 px-10 py-4 rounded-full font-bold text-lg transition">
+            <button className="border-2 border-purple-400 hover:bg-purple-400/10 px-10 py-4 rounded-full font-bold text-lg transition" onClick={moveToLogin}>
               Schedule Demo
             </button>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="border-t border-purple-500/20 py-8 px-6 bg-slate-900/80">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center space-x-2 mb-4 md:mb-0">

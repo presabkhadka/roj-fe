@@ -42,7 +42,7 @@ export default function ProfilePage() {
       </div>
     );
 
-  if (!user) return null; // No loading screen, just render nothing until data is ready
+  if (!user) return null;
 
   const handleProfilePage = () => navigate('/user/profile');
   const handleHomePage = () => navigate('/user/home');
@@ -68,7 +68,6 @@ export default function ProfilePage() {
         .floating-icon { animation: float 3s ease-in-out infinite; }
       `}</style>
 
-      {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-lg border-b border-purple-500/20">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-2">
@@ -90,7 +89,6 @@ export default function ProfilePage() {
         </div>
       </nav>
 
-      {/* Floating Icons */}
       <div className="absolute top-40 right-20 floating-icon hidden lg:block">
         <div className="bg-purple-600/20 p-4 rounded-2xl backdrop-blur">
           <TrendingUp className="w-8 h-8 text-purple-400" />
@@ -104,7 +102,6 @@ export default function ProfilePage() {
 
       <div className="max-w-4xl mx-auto px-6 pt-32">
         <div className="profile-card bg-slate-800/50 backdrop-blur-xl rounded-3xl border border-purple-500/20 shadow-2xl overflow-hidden">
-          {/* Header */}
           <div className="bg-gradient-to-r from-purple-600 to-pink-600 h-40 relative">
             <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2">
               <img
@@ -115,7 +112,6 @@ export default function ProfilePage() {
             </div>
           </div>
 
-          {/* Content */}
           <div className="mt-20 px-8 pb-10 text-center">
             <h1 className="text-4xl font-bold gradient-text mb-2">
               {user.firstName} {user.lastName}
@@ -126,7 +122,6 @@ export default function ProfilePage() {
               {user.userType}
             </div>
 
-            {/* Contact Info */}
             <div className="mt-6 flex flex-col items-center gap-3 text-slate-300">
               <div className="flex items-center gap-2">
                 <Mail size={16} className="text-purple-400" />
@@ -138,10 +133,8 @@ export default function ProfilePage() {
               </div>
             </div>
 
-            {/* Divider */}
             <div className="mt-8 border-t border-purple-500/20" />
 
-            {/* Skills */}
             <div className="mt-8 text-left">
               <h2 className="flex items-center text-lg font-semibold text-white mb-3">
                 <Star size={18} className="text-yellow-400 mr-2" />
@@ -163,7 +156,6 @@ export default function ProfilePage() {
               )}
             </div>
 
-            {/* Footer */}
             <div className="mt-10 pt-4 border-t border-purple-500/20">
               <p className="text-sm text-purple-300">
                 Profile last updated recently • © {new Date().getFullYear()}
