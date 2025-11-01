@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { Briefcase, Mail, MapPin, UserCircle2, Star, TrendingUp, Building2, Sparkles } from "lucide-react";
+import { Briefcase, Mail, MapPin, UserCircle2, Star, TrendingUp, Building2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface User {

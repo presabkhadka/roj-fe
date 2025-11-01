@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import { Briefcase, Send, Building2, TrendingUp } from "lucide-react";
+import { Briefcase, Send } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface QuestionsResponse {

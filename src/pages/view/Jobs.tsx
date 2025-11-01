@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
-import { Briefcase, Search, MapPin, Clock, Calendar, TrendingUp, Sparkles, Building2, ArrowRight, Filter, X, Plus } from "lucide-react";
+import { Briefcase, Search, Clock, Calendar, TrendingUp, Sparkles, Building2, ArrowRight, Filter, X, Plus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 interface Job {
